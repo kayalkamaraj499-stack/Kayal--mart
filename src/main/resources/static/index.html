@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KAYAL MART - Cosmetics, Skincare, Makeup &amp; Haircare</title>
+    <meta name="description" content="Shop premium cosmetics, skincare, makeup and haircare products at KAYAL MART.">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
+    <link href="/css/style.css" rel="stylesheet">
+</head>
+<body>
+
+<!-- ================= NAVBAR ================= -->
+<nav class="navbar navbar-expand-lg navbar-dark sticky-top km-navbar">
+    <div class="container">
+        <a class="navbar-brand fw-bold" href="/index.html"><i class="bi bi-flower1 me-1"></i>KAYAL<span class="text-gold">MART</span></a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#kmNavbar">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="kmNavbar">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                <li class="nav-item"><a class="nav-link active" href="/index.html">Home</a></li>
+                <li class="nav-item"><a class="nav-link" href="/products.html">Products</a></li>
+            </ul>
+            <ul class="navbar-nav align-items-center">
+                <div id="nav-auth" class="d-flex">
+                    <a class="nav-link px-2" href="/login.html">Login</a>
+                    <a class="btn btn-gold btn-sm ms-lg-2" href="/register.html">Register</a>
+                </div>
+                <div id="nav-user" class="dropdown d-none">
+                    <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        <i class="bi bi-person-circle me-1"></i><span id="nav-username">Account</span>
+                    </a>
+                    <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="userDropdown">
+                        <li><a class="dropdown-item" href="/account.html"><i class="bi bi-person me-2"></i>My Account</a></li>
+                        <li><a class="dropdown-item" href="/checkout.html"><i class="bi bi-bag-check me-2"></i>Checkout</a></li>
+                        <li><hr class="dropdown-divider"></li>
+                        <li><a class="dropdown-item text-danger" href="#" id="nav-logout"><i class="bi bi-box-arrow-right me-2"></i>Logout</a></li>
+                    </ul>
+                </div>
+                <li class="nav-item position-relative ms-2 ms-lg-3">
+                    <a class="nav-link" href="/cart.html" title="Shopping Cart">
+                        <i class="bi bi-cart-fill fs-5"></i>
+                        <span id="cart-badge" class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-gold text-dark d-none">0</span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<main>
+    <!-- ================= HERO ================= -->
+    <div class="container">
+        <div class="hero p-4 p-lg-5">
+            <div class="row align-items-center g-4 position-relative">
+                <div class="col-lg-7">
+                    <span class="hero-badge mb-3"><i class="bi bi-stars text-gold me-1"></i>Up to 40% Off - Beauty Fest</span>
+                    <h1 class="mb-3">Beauty that shines,<br>delivered to your <span class="text-gold">doorstep</span></h1>
+                    <p class="lead mb-4">Discover premium cosmetics, skincare, makeup and haircare from top brands at unbeatable prices. 100% authentic products, free shipping over $50.</p>
+                    <form id="heroSearch" class="input-group input-group-lg shadow-sm" style="max-width:520px;">
+                        <input type="text" id="heroSearchInput" class="form-control" placeholder="Search for serums, lipsticks, shampoos...">
+                        <button class="btn btn-rose" type="submit"><i class="bi bi-search me-1"></i>Search</button>
+                    </form>
+                    <div class="mt-3">
+                        <a href="/products.html?category=SKINCARE" class="btn btn-outline-rose me-2 mb-2">Skincare</a>
+                        <a href="/products.html?category=MAKEUP" class="btn btn-outline-rose me-2 mb-2">Makeup</a>
+                        <a href="/products.html?category=HAIRCARE" class="btn btn-outline-rose me-2 mb-2">Haircare</a>
+                        <a href="/products.html?category=COSMETICS" class="btn btn-outline-rose mb-2">Cosmetics</a>
+                    </div>
+                </div>
+                <div class="col-lg-5 d-none d-lg-block text-center">
+                    <i class="bi bi-flower1 display-1 text-gold" style="opacity:.5;"></i>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ================= CATEGORIES ================= -->
+    <div class="container">
+        <h2 class="section-title mb-1">Shop by Category</h2>
+        <p class="section-subtitle mb-4">Explore our curated beauty collections</p>
+        <div class="row g-4">
+            <div class="col-sm-6 col-lg-3">
+                <a href="/products.html?category=SKINCARE" class="text-decoration-none">
+                    <div class="card category-card cat-skincare h-100 text-center p-4">
+                        <div class="cat-icon"><i class="bi bi-sun"></i></div>
+                        <h5 class="mt-3 mb-1 fw-bold">Skincare</h5>
+                        <p class="small text-muted mb-0">Serums, creams, toners &amp; sunscreens</p>
+                    </div>
+                </a>
+            </div>
+            <div class="col-sm-6 col-lg-3">
+                <a href="/products.html?category=MAKEUP" class="text-decoration-none">
+                    <div class="card category-card cat-makeup h-100 text-center p-4">
+                        <div class="cat-icon"><i class="bi bi-palette"></i></div>
+                        <h5 class="mt-3 mb-1 fw-bold">Makeup</h5>
+                        <p class="small text-muted mb-0">Lipsticks, foundation, palettes &amp; more</p>
+                    </div>
+                </a>
+            </div>
+            <div class="col-sm-6 col-lg-3">
+                <a href="/products.html?category=HAIRCARE" class="text-decoration-none">
+                    <div class="card category-card cat-haircare h-100 text-center p-4">
+                        <div class="cat-icon"><i class="bi bi-lightning-charge"></i></div>
+                        <h5 class="mt-3 mb-1 fw-bold">Haircare</h5>
+                        <p class="small text-muted mb-0">Shampoos, serums, oils &amp; masks</p>
+                    </div>
+                </a>
+            </div>
+            <div class="col-sm-6 col-lg-3">
+                <a href="/products.html?category=COSMETICS" class="text-decoration-none">
+                    <div class="card category-card cat-cosmetics h-100 text-center p-4">
+                        <div class="cat-icon"><i class="bi bi-gem"></i></div>
+                        <h5 class="mt-3 mb-1 fw-bold">Cosmetics</h5>
+                        <p class="small text-muted mb-0">Fragrances, mists &amp; beauty tools</p>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <!-- ================= FEATURED PRODUCTS ================= -->
+    <div class="container mt-5">
+        <div class="d-flex justify-content-between align-items-end mb-4">
+            <div>
+                <h2 class="section-title mb-1">Featured Products</h2>
+                <p class="section-subtitle mb-0">Customer favorites, rated 4.2+ stars</p>
+            </div>
+            <a href="/products.html?sort=rating" class="btn btn-outline-rose">View All <i class="bi bi-arrow-right ms-1"></i></a>
+        </div>
+        <div class="row g-4" id="featured-products"></div>
+    </div>
+
+    <!-- ================= WHY CHOOSE US ================= -->
+    <div class="container mt-5">
+        <div class="bg-soft-rose rounded-4 p-4 p-lg-5">
+            <h2 class="section-title mb-4">Why Shop with KAYAL MART</h2>
+            <div class="row g-4">
+                <div class="col-md-3 text-center">
+                    <div class="feature-icon"><i class="bi bi-patch-check-fill"></i></div>
+                    <h6 class="mt-2 mb-1">100% Authentic</h6>
+                    <p class="small text-muted mb-0">Every product is sourced directly from authorized brands.</p>
+                </div>
+                <div class="col-md-3 text-center">
+                    <div class="feature-icon"><i class="bi bi-truck"></i></div>
+                    <h6 class="mt-2 mb-1">Fast Delivery</h6>
+                    <p class="small text-muted mb-0">Free shipping on orders over $50, delivered in 2-3 days.</p>
+                </div>
+                <div class="col-md-3 text-center">
+                    <div class="feature-icon"><i class="bi bi-shield-lock"></i></div>
+                    <h6 class="mt-2 mb-1">Secure Payments</h6>
+                    <p class="small text-muted mb-0">COD, cards and UPI with bank-grade security.</p>
+                </div>
+                <div class="col-md-3 text-center">
+                    <div class="feature-icon"><i class="bi bi-arrow-counterclockwise"></i></div>
+                    <h6 class="mt-2 mb-1">Easy Returns</h6>
+                    <p class="small text-muted mb-0">Hassle-free 7-day return policy on all products.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ================= NEW ARRIVALS ================= -->
+    <div class="container mt-5">
+        <div class="d-flex justify-content-between align-items-end mb-4">
+            <div>
+                <h2 class="section-title mb-1">New Arrivals</h2>
+                <p class="section-subtitle mb-0">Fresh additions to our beauty collection</p>
+            </div>
+            <a href="/products.html?sort=newest" class="btn btn-outline-rose">View All <i class="bi bi-arrow-right ms-1"></i></a>
+        </div>
+        <div class="row g-4" id="new-arrivals"></div>
+    </div>
+</main>
+
+<!-- ================= FOOTER ================= -->
+<footer class="km-footer">
+    <div class="container">
+        <div class="row g-4">
+            <div class="col-lg-4">
+                <h5 class="text-gold mb-3"><i class="bi bi-flower1 me-1"></i>KAYAL MART</h5>
+                <p class="mb-0">Your one-stop destination for premium cosmetics, skincare, makeup and haircare products. Quality beauty, delivered to your doorstep.</p>
+            </div>
+            <div class="col-lg-2 col-md-4">
+                <h6 class="mb-3">Shop</h6>
+                <ul>
+                    <li class="mb-2"><a href="/products.html">All Products</a></li>
+                    <li class="mb-2"><a href="/products.html?category=SKINCARE">Skincare</a></li>
+                    <li class="mb-2"><a href="/products.html?category=MAKEUP">Makeup</a></li>
+                    <li class="mb-2"><a href="/products.html?category=HAIRCARE">Haircare</a></li>
+                    <li class="mb-2"><a href="/products.html?category=COSMETICS">Cosmetics</a></li>
+                </ul>
+            </div>
+            <div class="col-lg-3 col-md-4">
+                <h6 class="mb-3">Customer Care</h6>
+                <ul>
+                    <li class="mb-2"><a href="/account.html">My Account</a></li>
+                    <li class="mb-2"><a href="/cart.html">Shopping Cart</a></li>
+                    <li class="mb-2"><a href="/checkout.html">Checkout</a></li>
+                    <li class="mb-2"><a href="#">Shipping &amp; Returns</a></li>
+                    <li class="mb-2"><a href="#">Contact Us</a></li>
+                </ul>
+            </div>
+            <div class="col-lg-3 col-md-4">
+                <h6 class="mb-3">Contact</h6>
+                <ul>
+                    <li class="mb-2"><i class="bi bi-geo-alt me-2"></i>123 Beauty Lane, New York, NY</li>
+                    <li class="mb-2"><i class="bi bi-envelope me-2"></i>support@kayalmart.com</li>
+                    <li class="mb-2"><i class="bi bi-telephone me-2"></i>+1 (555) 123-4567</li>
+                </ul>
+            </div>
+        </div>
+        <hr class="border-secondary">
+        <div class="d-flex flex-wrap justify-content-between align-items-center">
+            <p class="mb-0 small">&copy; 2026 KAYAL MART. All rights reserved.</p>
+            <div class="text-gold fs-5">
+                <i class="bi bi-facebook me-3"></i><i class="bi bi-instagram me-3"></i><i class="bi bi-twitter me-3"></i><i class="bi bi-youtube"></i>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<div id="toast-container"></div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<script src="/js/api.js"></script>
+<script src="/js/main.js"></script>
+</body>
+</html>

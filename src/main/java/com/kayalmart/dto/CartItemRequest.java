@@ -17,6 +17,7 @@ public class CartItemRequest {
     @NotNull(message = "Product ID is required")
     private Long productId;
 
-    @Min(value = 1, message = "Quantity must be at least 1")
+    /** Quantity to set. Use 0 to remove the item from the cart. */
+    @Min(value = 0, message = "Quantity must be 0 or greater")
     private Integer quantity;
 }

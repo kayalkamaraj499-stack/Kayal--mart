@@ -36,6 +36,9 @@ public class CartService {
 
     @Transactional
     public CartDto addItem(User user, CartItemRequest request) {
+        if (request.getQuantity() == null || request.getQuantity() < 1) {
+            throw new BadRequestException("Quantity must be at least 1");
+        }
         Cart cart = getCart(user);
         Product product = productRepository.findById(request.getProductId())
                 .orElseThrow(() -> new ResourceNotFoundException("Product not found"));

@@ -78,9 +78,13 @@ async function api(path, options) {
     if (res.status === 401) {
         clearAuth();
         updateAuthUI();
-        updateCartBadge();
-        if (!location.pathname.includes('login.html') && !location.pathname.includes('register.html')) {
-            location.href = '/login.html?next=' + encodeURIComponent(location.pathname + location.search);
+        /* Silent mode: background checks (e.g. cart badge) must not kick the
+           user to the login page while they are browsing public pages. */
+        if (!options.silent) {
+            updateCartBadge();
+            if (!location.pathname.includes('login.html') && !location.pathname.includes('register.html')) {
+                location.href = '/login.html?next=' + encodeURIComponent(location.pathname + location.search);
+            }
         }
         throw new Error('Your session has expired. Please login again.');
     }
@@ -132,7 +136,7 @@ async function updateCartBadge() {
         return;
     }
     try {
-        const cart = await api('/cart');
+        const cart = await api('/cart', { silent: true });
         const count = cart.totalItems || 0;
         badge.textContent = count;
         badge.classList.toggle('d-none', count === 0);
@@ -289,4 +293,17 @@ function showToast(message, type) {
 document.addEventListener('DOMContentLoaded', function () {
     updateAuthUI();
     updateCartBadge();
+});
+
+/* ---------- Dead-link guard ----------
+   Placeholder href="#" links (footer info links, terms, etc.) show a
+   friendly toast instead of silently jumping to the top of the page.
+   Links with their own handlers (logout, dropdowns) are skipped. */
+document.addEventListener('click', function (e) {
+    var link = e.target.closest ? e.target.closest('a[href="#"]') : null;
+    if (!link) return;
+    if (link.id === 'nav-logout' || link.id === 'userDropdown') return;
+    if (link.getAttribute('onclick') || link.hasAttribute('data-bs-toggle')) return;
+    e.preventDefault();
+    showToast('This page is not part of the demo yet.', 'error');
 });

@@ -32,7 +32,7 @@ function renderCheckoutSummary() {
 
     const subtotal = Number(checkoutCart.subtotal || 0);
     const shipping = subtotal >= FREE_SHIPPING_THRESHOLD ? 0 : SHIPPING_FEE;
-    const tax = Math.round(subtotal * 0.08 * 100) / 100; // 8% estimated tax
+    const tax = Math.round(subtotal * 0.08 * 100) / 100; // 8% tax
     const total = subtotal + shipping + tax;
 
     document.getElementById('sum-subtotal').textContent = formatPrice(subtotal);

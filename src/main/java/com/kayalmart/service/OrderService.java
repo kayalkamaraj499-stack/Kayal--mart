@@ -19,6 +19,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.math.BigDecimal;
+import java.math.RoundingMode;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -38,7 +39,7 @@ public class OrderService {
             throw new BadRequestException("Your cart is empty.");
         }
 
-        BigDecimal total = BigDecimal.ZERO;
+        BigDecimal subtotal = BigDecimal.ZERO;
         for (CartItem item : cart.getItems()) {
             Product product = item.getProduct();
             if (product.getStock() < item.getQuantity()) {
@@ -47,8 +48,17 @@ public class OrderService {
             }
             product.setStock(product.getStock() - item.getQuantity());
             productRepository.save(product);
-            total = total.add(product.getPrice().multiply(BigDecimal.valueOf(item.getQuantity())));
+            subtotal = subtotal.add(product.getPrice().multiply(BigDecimal.valueOf(item.getQuantity())));
         }
+
+        /* Apply the same charges shown on the checkout page:
+           free shipping on orders over $50 (otherwise $5.99) + 8% tax. */
+        BigDecimal shipping = subtotal.compareTo(new BigDecimal("50")) >= 0
+                ? BigDecimal.ZERO
+                : new BigDecimal("5.99");
+        BigDecimal tax = subtotal.multiply(new BigDecimal("0.08"))
+                .setScale(2, RoundingMode.HALF_UP);
+        BigDecimal total = subtotal.add(shipping).add(tax);
 
         Order order = new Order();
         order.setUser(user);

@@ -175,7 +175,9 @@ document.addEventListener('DOMContentLoaded', function () {
     initStateFromUrl();
 
     loadMeta().then(function () {
-        syncControlsFromState();
+        try {
+            syncControlsFromState();
+        } catch (e) { /* non-fatal: a missing filter control must not block product loading */ }
         loadProducts();
     });
 

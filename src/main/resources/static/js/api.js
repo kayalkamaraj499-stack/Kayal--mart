@@ -179,24 +179,19 @@ function discountBadge(p) {
     return '';
 }
 
-/* ---------- Image helpers with fallback chain ---------- */
+/* ---------- Image helpers with local fallback ---------- */
 
-function imgFallback(img, picsum, local) {
+function imgFallback(img, local) {
     if (img.dataset.stage === undefined) {
         img.dataset.stage = '1';
-        img.src = picsum;
-    } else if (img.dataset.stage === '1') {
-        img.dataset.stage = '2';
         img.src = local;
     }
 }
 
 function productImage(p, cls) {
-    const seed = 'km' + (p.id || 'x');
-    const picsum = 'https://picsum.photos/seed/' + seed + '/600/600';
     const local = '/images/placeholder.svg';
     return '<img src="' + escapeHtml(p.imageUrl) + '" class="' + (cls || '') + '" alt="' +
-        escapeHtml(p.name) + '" loading="lazy" onerror="imgFallback(this, \'' + picsum + '\', \'' + local + '\')">';
+        escapeHtml(p.name) + '" loading="lazy" onerror="imgFallback(this, \'' + local + '\')">';
 }
 
 /* ---------- Product card ---------- */

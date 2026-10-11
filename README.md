@@ -84,6 +84,9 @@ The catalog is also auto-seeded with **22 beauty products** across all 4 categor
 Because the database is an **embedded H2 in-memory store**, the demo data is recreated
 every time the app starts (a fresh, clean demo every run).
 
+**Checkout pricing rules:** free shipping on orders of $50 or more (otherwise $5.99),
+plus 8% tax. The order total always matches the checkout summary.
+
 Optional: browse the H2 console at **http://localhost:8081/h2-console**
 (JDBC URL: `jdbc:h2:mem:kayalmart`, user: `sa`, password: empty).
 
